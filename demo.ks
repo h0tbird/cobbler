@@ -23,11 +23,11 @@ timezone --utc Europe/Andorra
 
 zerombr
 bootloader --location=mbr --driveorder=vda,sda,hda --append="crashkernel=auto"
-%include /tmp/part-include
+%include /tmp/part1-include
 part /boot --fstype=ext4 --size 128
 part pv.0 --grow --size=1
 volgroup vg0 --pesize=4096 pv.0
-logvol / --fstype=ext4 --name=lv0 --vgname=vg0 --size=2048 --grow --maxsize=4096
+%include /tmp/part2-include
 reboot
 
 #-------------------
@@ -48,8 +48,11 @@ puppet
 #!/bin/sh
 $SNIPPET('pre_install_network_config')
 for i in /sys/block/[hsv]da; do d="\$(basename \$i)"; done
-echo "clearpart --all --drives=\$d --initlabel" > /tmp/part-include
-echo "ignoredisk --only-use=\$d" >> /tmp/part-include
+echo "clearpart --all --drives=\$d --initlabel" > /tmp/part1-include
+echo "ignoredisk --only-use=\$d" >> /tmp/part1-include
+[[ $is_virtual -eq 1 ]] \
+&& echo "logvol / --fstype=ext4 --name=lv0 --vgname=vg0 --size=1 --grow" >> /tmp/part2-include \
+|| echo "logvol / --fstype=ext4 --name=lv0 --vgname=vg0 --size=1 --grow --maxsize=4096" >> /tmp/part2-include
 
 #----------------------------------------------------------------------------------
 # Post-installation script: Commands to run on the system once the installation is
