@@ -27,7 +27,7 @@ bootloader --location=mbr --driveorder=vda,sda,hda --append="crashkernel=auto"
 part /boot --fstype=ext4 --size 128
 part pv.0 --grow --size=1
 volgroup vg0 --pesize=4096 pv.0
-logvol / --fstype=ext4 --name=lv0 --vgname=vg0 --size=2048 --grow --maxsize=2048
+logvol / --fstype=ext4 --name=lv0 --vgname=vg0 --size=2048 --grow --maxsize=4096
 reboot
 
 #-------------------
