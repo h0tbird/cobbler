@@ -22,5 +22,8 @@ cobbler system remove --name=$h
 cobbler system add  --name=$h --profile=$profile --hostname=$h --name-servers=$dns --gateway=$gw
 cobbler system edit --name=$h --virt-ram=$ram --virt-auto-boot=1 --virt-type=kvm --virt-cpus=$cpu --virt-path=$hdpath
 cobbler system edit --name=$h --interface=eth0 --mac=$m0 --ip-address=$i0 --subnet=255.255.255.0 --static=1 --virt-bridge=br0
+cobbler system edit --name=$h --interface=eth1 --mac=00:16:3e:7d:18:bb --static=1 --virt-bridge=br1
+cobbler system edit --name=$h --interface=eth1.3 --static=0
+cobbler system edit --name=$h --interface=eth1.6 --static=1
 cobbler system edit --name=$h --kopts="serial console=ttyS0,115200 ksdevice=eth0"
 cobbler system edit --name=$h --kopts-post="serial console=ttyS0,115200 ksdevice=eth0"
