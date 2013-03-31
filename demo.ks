@@ -84,7 +84,7 @@ puppet="[main]\n\
     modulepath = \\$confdir/modules:\\$confdir/roles\n\
 "
 sed -i 's/timeout=./timeout=0/' /boot/grub/grub.conf
-echo "192.168.2.2 puppet" >> /etc/hosts
+echo "192.168.1.4 puppet" >> /etc/hosts
 echo -e "$puppet" > /etc/puppet/puppet.conf
 $SNIPPET('post_install_network_config')
 
