@@ -41,7 +41,7 @@ puppet
 
 #-------------------------------------------------------------------------------------
 # Pre-installation script: Commands to run on the system immediately after the ks.cfg
-# has been parsed. 
+# has been parsed:
 #-------------------------------------------------------------------------------------
 
 %pre
@@ -56,7 +56,7 @@ echo "ignoredisk --only-use=\$d" >> /tmp/part1-include
 
 #----------------------------------------------------------------------------------
 # Post-installation script: Commands to run on the system once the installation is
-# complete.
+# complete:
 #----------------------------------------------------------------------------------
 
 %post
@@ -86,7 +86,8 @@ puppet="[main]\n\
 sed -i 's/timeout=./timeout=0/' /boot/grub/grub.conf
 echo "127.0.0.1 `hostname` `hostname -s` localhost.localdomain localhost" > /etc/hosts
 echo "192.168.1.4 puppet" >> /etc/hosts
-echo -e "$puppet" > /etc/puppet/puppet.conf
+echo -e "\$puppet" > /etc/puppet/puppet.conf
 $SNIPPET('post_install_network_config')
+$SNIPPET('puppet_register_if_enabled')
 
 %end
