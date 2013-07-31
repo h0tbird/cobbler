@@ -37,6 +37,7 @@ reboot
 %packages --nobase
 openssh-server
 bridge-utils
+wget
 puppet
 %end
 
