@@ -38,6 +38,7 @@ reboot
 openssh-server
 bridge-utils
 puppet
+%end
 
 #-------------------------------------------------------------------------------------
 # Pre-installation script: Commands to run on the system immediately after the ks.cfg
@@ -45,7 +46,7 @@ puppet
 #-------------------------------------------------------------------------------------
 
 %pre
-#!/bin/sh
+$SNIPPET('kickstart_start')
 $SNIPPET('pre_install_network_config')
 for i in /sys/block/[hsv]da; do d="\$(basename \$i)"; done
 echo "clearpart --all --drives=\$d --initlabel" > /tmp/part1-include
@@ -53,6 +54,7 @@ echo "ignoredisk --only-use=\$d" >> /tmp/part1-include
 [[ $is_virtual -eq 1 ]] \
 && echo "logvol / --fstype=ext4 --name=lv0 --vgname=vg0 --size=1 --grow" >> /tmp/part2-include \
 || echo "logvol / --fstype=ext4 --name=lv0 --vgname=vg0 --size=1 --grow --maxsize=4096" >> /tmp/part2-include
+%end
 
 #----------------------------------------------------------------------------------
 # Post-installation script: Commands to run on the system once the installation is
@@ -60,7 +62,6 @@ echo "ignoredisk --only-use=\$d" >> /tmp/part1-include
 #----------------------------------------------------------------------------------
 
 %post
-#!/bin/sh
 puppet="[main]\n\
 \n\
     confdir    = /etc/puppet\n\
@@ -89,5 +90,5 @@ echo "192.168.1.4 puppet" >> /etc/hosts
 echo -e "\$puppet" > /etc/puppet/puppet.conf
 $SNIPPET('post_install_network_config')
 $SNIPPET('puppet_register_if_enabled')
-
+$SNIPPET('kickstart_done')
 %end
