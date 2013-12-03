@@ -6,10 +6,8 @@
 
 name='CentOS_6-x86_64'
 arch='x86_64'
-path='/var/www/cobbler/repo_mirror/CentOS_6-x86_64-base'
 breed='redhat'
 version='rhel6'
-kickstart='/var/lib/cobbler/kickstarts/demo.ks'
 
 #---------
 # Create:
