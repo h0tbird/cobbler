@@ -4,19 +4,19 @@
 # Define:
 #---------
 
-h=router01.demo.lan
-profile=Virtual
-hdpath=/dev/vg0/$h
-ram=1024
-cpu=2
+h='router01.demo.lan'
+profile='Virtual'
+hdpath="/dev/vg0/${h}"
+ram='1024'
+cpu='2'
 m0=`echo $h | md5sum | sed "s/\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\).*/00:16:3e:\1:\2:\3/g"`
 m1=`printf %.6X $(( 0x\`echo $h | md5sum | cut -c-6\` + 1 )) | \
 tr [A-Z] [a-z] | sed "s/\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\).*/00:16:3e:\1:\2:\3/g"`
 m2=`printf %.6X $(( 0x\`echo $h | md5sum | cut -c-6\` + 2 )) | \
 tr [A-Z] [a-z] | sed "s/\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\).*/00:16:3e:\1:\2:\3/g"`
-i0=192.168.1.1
-gw=192.168.1.1
-dns=8.8.8.8
+i0='192.168.1.1'
+gw='192.168.1.1'
+dns='8.8.8.8'
 
 #---------
 # Create:

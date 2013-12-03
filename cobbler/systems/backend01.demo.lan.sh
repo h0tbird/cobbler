@@ -4,15 +4,15 @@
 # Define:
 #---------
 
-h=backend01.demo.lan
-profile=Virtual
-hdpath=/dev/vg0/$h
-ram=1024
-cpu=2
+h='backend01.demo.lan'
+profile='Virtual'
+hdpath="/dev/vg0/${h}"
+ram='1024'
+cpu='2'
 m0=`echo $h | md5sum | sed "s/\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\)\([0-9a-z]\{2\}\).*/00:16:3e:\1:\2:\3/g"`
-i0=192.168.1.7
-gw=192.168.1.1
-dns=8.8.8.8
+i0='192.168.1.7'
+gw='192.168.1.1'
+dns='8.8.8.8'
 
 #---------
 # Create:
