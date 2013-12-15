@@ -4,9 +4,9 @@
 # Define:
 #---------
 
-name='puppetlabs-deps-el6-x86_64'
+name='Fedora_19-x86_64-base'
 arch='x86_64'
-mirror='http://yum.puppetlabs.com/el/6/dependencies/x86_64'
+mirror='http://ftp.cica.es/fedora/linux/releases/19/Fedora/x86_64/os/'
 
 #---------
 # Create:
