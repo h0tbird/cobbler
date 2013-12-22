@@ -5,7 +5,7 @@
 #---------
 
 h='kvm01.demo.lan'
-profile='Hardware'
+profile='CentOS_Hardware'
 m0='4c:72:b9:26:25:97'
 i0='192.168.1.2'
 n0='255.255.255.0'

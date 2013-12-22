@@ -5,7 +5,7 @@
 #---------
 
 h='router01.demo.lan'
-profile='Virtual'
+profile='CentOS_Virtual'
 hdpath="/dev/vg0/${h}"
 ram='1024'
 cpu='2'

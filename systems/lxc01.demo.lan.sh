@@ -5,7 +5,7 @@
 #---------
 
 h='lxc01.demo.lan'
-profile='Virtual'
+profile='RHEL_Virtual'
 hdpath="/dev/vg0/${h}"
 ram='1024'
 cpu='2'

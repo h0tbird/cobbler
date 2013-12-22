@@ -21,6 +21,8 @@ ln -s /var/www/cobbler/repo_mirror/${name}-base/repodata /var/www/cobbler/ks_mir
 
 tmp=`mktemp`
 cat << EOF > $tmp
+.treeinfo
+LiveOS/squashfs.img
 images/pxeboot/initrd.img
 images/pxeboot/vmlinuz
 EOF
