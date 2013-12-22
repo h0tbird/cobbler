@@ -6,7 +6,7 @@
 
 name='RHEL_Virtual'
 distro='RHEL7-x86_64'
-kickstart='/var/lib/cobbler/kickstarts/demo.ks'
+kickstart='/var/lib/cobbler/kickstarts/rhel7.ks'
 repos='RHEL7-x86_64-base'
 
 #---------
